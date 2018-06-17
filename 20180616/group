@@ -1,0 +1,20 @@
+##
+# Group Database
+#   - name: Contains the name assigned to the group.
+#   - password (x) - x in this field indicates that shadow passwords are used.
+#   - Group ID (GID): Each user must be assigned a group ID. You can see this number in your /etc/passwd file.
+#   - members: Comma separated list of user names - members of the group.
+##
+
+root::0:root
+other::1:
+bin::2:root,bin,daemon
+sys::3:root,bin,sys,adm
+adm::4:root,adm,daemon
+mail::6:root
+staff::10:jimenez,peck,ivanovic
+daemon::12:root,daemon
+sysadmin::14:jimenez,ivanovic
+nobody::60001:
+noaccess::60002:
+nogroup::65534:

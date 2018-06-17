@@ -164,6 +164,6 @@ def number_to_words1(number):
     return " ".join(word_list[::-1])
 """
 
-num_input = 74635241#input("Enter a number: ")
+num_input = 1106#input("Enter a number: ")
 
 print(num_input, "\n", number_to_words(num_input))
