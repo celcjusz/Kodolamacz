@@ -8,6 +8,9 @@ class Kontakt:
         self.nazwisko = nazwisko
         self.adresy = adresy
 
+    def __repr__(self):
+        return f'{self.__dict__}'
+
 
 class Adres:
     def __init__(self, **kwargs):
@@ -28,10 +31,17 @@ ksiazka_adresowa = [
     Kontakt(imie='Иван', nazwisko='Иванович', adresy=[]),
 ]
 
-database = []
-for contact in ksiazka_adresowa:
-    database.append(contact.__dict__)
-# print(database)
+# #ten fragment jest bez sensu: do database[] przepisuje ksiazka_adresowa 1:1
+# database = []
+# for contact in ksiazka_adresowa:
+#     # for x in contact.__dict__:
+#     #     print("atr kontaktu: ", x)
+#     # print("Kontact ", contact.__dict__)
+#     database.append(contact.__dict__)
+# print("książka: ", ksiazka_adresowa)
+# print("db: ", database)
+
+database = ksiazka_adresowa
 
 ##---------------------------------------------------------
 # jeszcze raz przemyśleć ten temat wyciągania adresów z kontaktów
@@ -45,10 +55,10 @@ for dict in database:
         if isinstance(dict[key], list): #czy trafiliśmy na adresy
             if len(dict[key]) > 1: #jak lista jest pusta to  olać
                 for elem_dict in dict[key]: #dla każdege elementu listy adresów. każdy z tych elementów to ADRES
-                    print (elem_dict) #to jest Adres
+                    print ("obiekt: ", type(elem_dict)) #to jest Adres
 # tu się kurwa pogubiłem - chuj wie dlaczego tak działa????
                     for x in elem_dict.__dict__:
-                        print(elem_dict)
+                        print("Atrybut: ", x)
                         headers.add(x)
         else:
             headers.add(key)
